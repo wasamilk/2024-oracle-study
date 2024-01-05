@@ -54,3 +54,5 @@ insert into salgrade  values(4,2001,3000);
 insert into salgrade  values(5,3001,9999);
 
 commit;
+
+
