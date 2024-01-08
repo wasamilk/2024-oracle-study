@@ -94,7 +94,49 @@ SELECT ename, job, sal,
   FROM emp
 ;
 
-/*  */
+
+-- ==============================================================================
+/* MAX, MIN, AVG, COUNT */
+SELECT job
+      , MAX(sal)
+      , MIN(sal)
+      , AVG(sal)
+      , SUM(sal)
+      , COUNT(sal)
+  FROM emp
+ WHERE job='SALESMAN'
+ GROUP BY job
+;
+
+SELECT job, MIN(sal)
+  FROM emp
+ GROUP BY job
+ ORDER BY MIN(sal)
+;
+
+SELECT job, MIN(sal)
+  FROM emp
+ WHERE job != 'SALESMAN'
+ GROUP BY job
+ ORDER BY MIN(sal) DESC
+;
+
+SELECT COUNT(comm)
+       , AVG(comm)
+       , COUNT(NVL(comm, 0))
+       , ROUND(AVG(NVL(comm, 0)), 0)
+  FROM emp
+;
+
+SELECT job
+       , SUM(sal)
+  FROM emp
+ WHERE job != 'SALSEMAN'  
+ GROUP BY job
+HAVING SUM(sal) >= 4000
+ ORDER BY SUM(sal) DESC
+;
+
 /*  */
 
 
