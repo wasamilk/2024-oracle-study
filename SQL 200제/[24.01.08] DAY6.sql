@@ -103,6 +103,7 @@ SELECT job
       , AVG(sal)
       , SUM(sal)
       , COUNT(sal)
+      , COUNT(*)
   FROM emp
  WHERE job='SALESMAN'
  GROUP BY job
