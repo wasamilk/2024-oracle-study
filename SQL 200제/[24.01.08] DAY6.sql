@@ -54,3 +54,48 @@ SELECT ename
 
 
 
+-- ==============================================================================
+/* DECODE */
+SELECT ename
+        , deptno
+        , DECODE(deptno, 10, 300, 20, 400, 0) as 보너스
+  FROM emp
+-- ORDER BY deptno
+;
+SELECT empno
+        , MOD(empno,2)
+        , DECODE(MOD(empno,2),0,'짝수',1,'홀수') as 홀짝
+  FROM emp
+;
+SELECT ename
+        , job
+        , DECODE(job, 'SALESMAN', 5000, 2000) as 보너스
+  FROM emp
+;
+        
+
+/* CASE */
+SELECT ename, job, sal,
+        CASE WHEN sal >= 3000 THEN 500
+             WHEN sal >= 2000 THEN 300
+             WHEN sal >= 1000 THEN 200
+             ELSE 0 END AS BONUS
+  FROM emp
+;
+SELECT ename, job, sal,
+        CASE WHEN comm is null THEN 500
+             ELSE 0 END AS BONUS
+  FROM emp
+;
+
+SELECT ename, job, sal,
+        CASE WHEN job in ('SALESMAN', 'ANALYST') THEN 500
+             ELSE 0 END AS BONUS
+  FROM emp
+;
+
+/*  */
+/*  */
+
+
+
